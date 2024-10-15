@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "83427efa-4a59-47bb-9bc4-33f376022047",
+		"name": "01_redis_api_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37983961"
+	},
+	"item": [
+		{
+			"name": "Q2 Añadir un nuevo cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"cliente\":\"RFC89045\",\r\n    \"nombre\":\"Esteban xd\",\r\n    \"sucursalId\":\"1111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clients/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q4 buscar sucursales cercanas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/buscar/sucursales_geopos/-104.8946/21.5107/100/km",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"buscar",
+						"sucursales_geopos",
+						"-104.8946",
+						"21.5107",
+						"100",
+						"km"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q1 Obetener detalle de un producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/producto/1001/sucursal/2222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"producto",
+						"1001",
+						"sucursal",
+						"2222"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q3 Resgistrar una nueva venta para un cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ventaId\":\"2001\",\r\n    \"productoId\":\"1003\",\r\n    \"cantidad\":\"2\",\r\n    \"costo_unitario\":\"60\",\r\n    \"rfc\":\"RFC12345\",\r\n    \"fecha\":\"20240922\",\r\n    \"hora\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ventas/2001/sucursal/2222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ventas",
+						"2001",
+						"sucursal",
+						"2222"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q5 Obtener conjunto de clientes que has comprado en una sucursal especifica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sucursal/clientes/1111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sucursal",
+						"clientes",
+						"1111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q6 Registro histórico de los clientes que han comprado en cada sucursal",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sucursal/sucursales/clientes/historico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sucursal",
+						"sucursales",
+						"clientes",
+						"historico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q3.1 Mirar ventas por sucursal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ventas/todas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ventas",
+						"todas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

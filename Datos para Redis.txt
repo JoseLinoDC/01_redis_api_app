@@ -1,0 +1,152 @@
+MULTI
+SET sucursal:1111 '{"codigo": 1111, "direccion": "Calle Hidalgo 123, Tepic, Nayarit", "email": "contacto1111@sucursales.com", "celular": "3111234567", "latitud": "21.5107", "longitud": "-104.8946"}'
+SET sucursal:2222 '{"codigo": 2222, "direccion": "Av. Insurgentes 456, Tepic, Nayarit", "email": "contacto2222@sucursales.com", "celular": "3117654321", "latitud": "21.5011", "longitud": "-104.8941"}'
+SET sucursal:3333 '{"codigo": 3333, "direccion": "Blvd. Tepic 789, Xalisco, Nayarit", "email": "contacto3333@sucursales.com", "celular": "3119876543", "latitud": "21.4441", "longitud": "-104.8735"}'
+SET sucursal:4444 '{"codigo": 4444, "direccion": "Calle México 321, Santiago, Nayarit", "email": "contacto4444@sucursales.com", "celular": "3116547890", "latitud": "21.1748", "longitud": "-105.2277"}'
+SET sucursal:5555 '{"codigo": 5555, "direccion": "Av. Principal 654, Compostela, Nayarit", "email": "contacto5555@sucursales.com", "celular": "3114321987", "latitud": "21.2373", "longitud": "-105.0905"}'
+EXEC
+
+========================================================================================================================
+
+MULTI
+GEOADD sucursales_geopos -104.8946 21.5107 "sucursal:1111"
+GEOADD sucursales_geopos -104.8941 21.5011 "sucursal:2222"
+GEOADD sucursales_geopos -104.8735 21.4441 "sucursal:3333"
+GEOADD sucursales_geopos -105.2277 21.1748 "sucursal:4444"
+GEOADD sucursales_geopos -105.0905 21.2373 "sucursal:5555"
+EXEC
+
+========================================================================================================================
+
+MULTI
+HSET producto:1001:sucursal:1111 nombre "Cemento" precio 200 categoria "Material de Construcción"
+HSET producto:1002:sucursal:1111 nombre "Arena" precio 50 categoria "Material de Construcción"
+HSET producto:1003:sucursal:1111 nombre "Grava" precio 60 categoria "Material de Construcción"
+HSET producto:1004:sucursal:1111 nombre "Bloque" precio 15 categoria "Material de Construcción"
+HSET producto:1005:sucursal:1111 nombre "Varilla" precio 150 categoria "Material de Construcción"
+
+HSET producto:1001:sucursal:2222 nombre "Cemento" precio 200 categoria "Material de Construcción"
+HSET producto:1002:sucursal:2222 nombre "Cal" precio 30 categoria "Material de Construcción"
+HSET producto:1003:sucursal:2222 nombre "Tubos PVC" precio 80 categoria "Fontanería"
+HSET producto:1004:sucursal:2222 nombre "Clavos" precio 10 categoria "Ferretería"
+HSET producto:1005:sucursal:2222 nombre "Tornillos" precio 12 categoria "Ferretería"
+
+HSET producto:1001:sucursal:3333 nombre "Ladrillo" precio 5 categoria "Material de Construcción"
+HSET producto:1002:sucursal:3333 nombre "Tubería de cobre" precio 100 categoria "Fontanería"
+HSET producto:1003:sucursal:3333 nombre "Puerta de madera" precio 500 categoria "Carpintería"
+HSET producto:1004:sucursal:3333 nombre "Ventana de aluminio" precio 700 categoria "Carpintería"
+HSET producto:1005:sucursal:3333 nombre "Cemento blanco" precio 250 categoria "Material de Construcción"
+
+HSET producto:1001:sucursal:4444 nombre "Arena gruesa" precio 60 categoria "Material de Construcción"
+HSET producto:1002:sucursal:4444 nombre "Mortero" precio 120 categoria "Material de Construcción"
+HSET producto:1003:sucursal:4444 nombre "Grava fina" precio 55 categoria "Material de Construcción"
+HSET producto:1004:sucursal:4444 nombre "Clavos de acero" precio 15 categoria "Ferretería"
+HSET producto:1005:sucursal:4444 nombre "Tubería galvanizada" precio 200 categoria "Fontanería"
+
+HSET producto:1001:sucursal:5555 nombre "Pintura blanca" precio 500 categoria "Pinturas"
+HSET producto:1002:sucursal:5555 nombre "Pintura negra" precio 450 categoria "Pinturas"
+HSET producto:1003:sucursal:5555 nombre "Yeso" precio 100 categoria "Material de Construcción"
+HSET producto:1004:sucursal:5555 nombre "Taladro" precio 800 categoria "Herramientas"
+HSET producto:1005:sucursal:5555 nombre "Sierra eléctrica" precio 1500 categoria "Herramientas"
+EXEC
+
+========================================================================================================================
+
+MULTI
+SADD clientes "cliente:RFC12345:Juan Perez"
+SADD clientes "cliente:RFC54321:Maria Gomez"
+SADD clientes "cliente:RFC67890:Carlos Ramirez"
+SADD clientes "cliente:RFC09876:Ana Martinez"
+SADD clientes "cliente:RFC23456:Luis Hernandez"
+SADD clientes "cliente:RFC65432:Gabriela Torres"
+SADD clientes "cliente:RFC78901:Jose Vargas"
+SADD clientes "cliente:RFC10987:Carmen Ponce"
+SADD clientes "cliente:RFC34567:Fernando Lopez"
+SADD clientes "cliente:RFC76543:Daniela Moreno"
+SADD clientes "cliente:RFC89012:Miguel Ortiz"
+SADD clientes "cliente:RFC21098:Sofia Sanchez"
+SADD clientes "cliente:RFC45678:Andres Suarez"
+SADD clientes "cliente:RFC87654:Lucia Gutierrez"
+SADD clientes "cliente:RFC90123:Alberto Flores"
+SADD clientes "cliente:RFC32109:Julieta Rivas"
+SADD clientes "cliente:RFC56789:Ricardo Mendoza"
+SADD clientes "cliente:RFC98765:Elena Castillo"
+SADD clientes "cliente:RFC01234:Pablo Cruz"
+SADD clientes "cliente:RFC43210:Claudia Vega"
+SADD clientes "cliente:RFC67891:David Figueroa"
+SADD clientes "cliente:RFC19876:Adriana Delgado"
+SADD clientes "cliente:RFC34568:Mauricio Espinoza"
+SADD clientes "cliente:RFC76544:Beatriz Aguilar"
+SADD clientes "cliente:RFC89013:Esteban Roldan"
+EXEC
+
+========================================================================================================================
+
+MULTI
+RPUSH sucursal:1111:ventas:2024 "VENTA:10123:PRODUCTO:1003:CANTIDAD:2:COSTO_UNITARIO:60:TOTAL:120:CLIENTE:RFC12345:SUCURSAL:1111:FECHA:20240922:HORA:123456"
+RPUSH sucursal:1111:ventas:2024 "VENTA:10123:PRODUCTO:1005:CANTIDAD:3:COSTO_UNITARIO:150:TOTAL:450:CLIENTE:RFC12345:SUCURSAL:1111:FECHA:20240922:HORA:123457"
+RPUSH sucursal:1111:ventas:2024 "VENTA:10124:PRODUCTO:1001:CANTIDAD:5:COSTO_UNITARIO:200:TOTAL:1000:CLIENTE:RFC56789:SUCURSAL:1111:FECHA:20240923:HORA:123458"
+RPUSH sucursal:1111:ventas:2024 "VENTA:10125:PRODUCTO:1004:CANTIDAD:1:COSTO_UNITARIO:250:TOTAL:250:CLIENTE:RFC89123:SUCURSAL:1111:FECHA:20240924:HORA:123459"
+RPUSH sucursal:1111:ventas:2024 "VENTA:10126:PRODUCTO:1002:CANTIDAD:10:COSTO_UNITARIO:50:TOTAL:500:CLIENTE:RFC45612:SUCURSAL:1111:FECHA:20240925:HORA:123500"
+
+RPUSH sucursal:2222:ventas:2024 "VENTA:10200:PRODUCTO:1007:CANTIDAD:2:COSTO_UNITARIO:75:TOTAL:150:CLIENTE:RFC16161:SUCURSAL:2222:FECHA:20240922:HORA:123501"
+RPUSH sucursal:2222:ventas:2024 "VENTA:10201:PRODUCTO:1008:CANTIDAD:4:COSTO_UNITARIO:100:TOTAL:400:CLIENTE:RFC20202:SUCURSAL:2222:FECHA:20240922:HORA:123502"
+RPUSH sucursal:2222:ventas:2024 "VENTA:10202:PRODUCTO:1010:CANTIDAD:1:COSTO_UNITARIO:300:TOTAL:300:CLIENTE:RFC99000:SUCURSAL:2222:FECHA:20240923:HORA:123503"
+RPUSH sucursal:2222:ventas:2024 "VENTA:10203:PRODUCTO:1001:CANTIDAD:3:COSTO_UNITARIO:200:TOTAL:600:CLIENTE:RFC11223:SUCURSAL:2222:FECHA:20240924:HORA:123504"
+RPUSH sucursal:2222:ventas:2024 "VENTA:10204:PRODUCTO:1005:CANTIDAD:7:COSTO_UNITARIO:150:TOTAL:1050:CLIENTE:RFC99000:SUCURSAL:2222:FECHA:20240925:HORA:123505"
+
+RPUSH sucursal:3333:ventas:2024 "VENTA:10300:PRODUCTO:1011:CANTIDAD:1:COSTO_UNITARIO:500:TOTAL:500:CLIENTE:RFC33445:SUCURSAL:3333:FECHA:20240922:HORA:123506"
+RPUSH sucursal:3333:ventas:2024 "VENTA:10301:PRODUCTO:1006:CANTIDAD:5:COSTO_UNITARIO:100:TOTAL:500:CLIENTE:RFC70707:SUCURSAL:3333:FECHA:20240923:HORA:123507"
+RPUSH sucursal:3333:ventas:2024 "VENTA:10302:PRODUCTO:1012:CANTIDAD:2:COSTO_UNITARIO:250:TOTAL:500:CLIENTE:RFC13131:SUCURSAL:3333:FECHA:20240924:HORA:123508"
+RPUSH sucursal:3333:ventas:2024 "VENTA:10303:PRODUCTO:1009:CANTIDAD:1:COSTO_UNITARIO:600:TOTAL:600:CLIENTE:RFC30303:SUCURSAL:3333:FECHA:20240925:HORA:123509"
+RPUSH sucursal:3333:ventas:2024 "VENTA:10304:PRODUCTO:1004:CANTIDAD:3:COSTO_UNITARIO:250:TOTAL:750:CLIENTE:RFC55667:SUCURSAL:3333:FECHA:20240926:HORA:123510"
+
+RPUSH sucursal:4444:ventas:2024 "VENTA:10400:PRODUCTO:1013:CANTIDAD:2:COSTO_UNITARIO:120:TOTAL:240:CLIENTE:RFC80808:SUCURSAL:4444:FECHA:20240922:HORA:123511"
+RPUSH sucursal:4444:ventas:2024 "VENTA:10401:PRODUCTO:1010:CANTIDAD:3:COSTO_UNITARIO:300:TOTAL:900:CLIENTE:RFC40404:SUCURSAL:4444:FECHA:20240923:HORA:123512"
+RPUSH sucursal:4444:ventas:2024 "VENTA:10402:PRODUCTO:1002:CANTIDAD:4:COSTO_UNITARIO:50:TOTAL:200:CLIENTE:RFC77889:SUCURSAL:4444:FECHA:20240924:HORA:123513"
+RPUSH sucursal:4444:ventas:2024 "VENTA:10403:PRODUCTO:1014:CANTIDAD:1:COSTO_UNITARIO:1000:TOTAL:1000:CLIENTE:RFC14141:SUCURSAL:4444:FECHA:20240925:HORA:123514"
+RPUSH sucursal:4444:ventas:2024 "VENTA:10404:PRODUCTO:1005:CANTIDAD:6:COSTO_UNITARIO:150:TOTAL:900:CLIENTE:RFC40404:SUCURSAL:4444:FECHA:20240926:HORA:123515"
+
+RPUSH sucursal:5555:ventas:2024 "VENTA:10500:PRODUCTO:1007:CANTIDAD:2:COSTO_UNITARIO:75:TOTAL:150:CLIENTE:RFC78987:SUCURSAL:5555:FECHA:20240922:HORA:123516"
+RPUSH sucursal:5555:ventas:2024 "VENTA:10501:PRODUCTO:1004:CANTIDAD:1:COSTO_UNITARIO:250:TOTAL:250:CLIENTE:RFC50505:SUCURSAL:5555:FECHA:20240923:HORA:123517"
+RPUSH sucursal:5555:ventas:2024 "VENTA:10502:PRODUCTO:1015:CANTIDAD:5:COSTO_UNITARIO:600:TOTAL:3000:CLIENTE:RFC15151:SUCURSAL:5555:FECHA:20240924:HORA:123518"
+RPUSH sucursal:5555:ventas:2024 "VENTA:10503:PRODUCTO:1009:CANTIDAD:2:COSTO_UNITARIO:600:TOTAL:1200:CLIENTE:RFC90909:SUCURSAL:5555:FECHA:20240925:HORA:123519"
+RPUSH sucursal:5555:ventas:2024 "VENTA:10504:PRODUCTO:1005:CANTIDAD:4:COSTO_UNITARIO:150:TOTAL:600:CLIENTE:RFC90909:SUCURSAL:5555:FECHA:20240926:HORA:123520"
+EXEC
+
+========================================================================================================================
+
+MULTI
+SADD sucursal:1111:clientes "cliente:RFC12345:nombre:Juan Perez"
+SADD sucursal:1111:clientes "cliente:RFC67890:nombre:Maria Lopez"
+SADD sucursal:1111:clientes "cliente:RFC45654:nombre:Sandra Vega"
+SADD sucursal:1111:clientes "cliente:RFC10101:nombre:Fernando Soto"
+SADD sucursal:1111:clientes "cliente:RFC60606:nombre:Lucia Delgado"
+SADD sucursal:1111:clientes "cliente:RFC17171:nombre:Raul Castro"
+
+SADD sucursal:2222:clientes "cliente:RFC11223:nombre:Carlos Ramirez"
+SADD sucursal:2222:clientes "cliente:RFC99000:nombre:Diana Torres"
+SADD sucursal:2222:clientes "cliente:RFC20202:nombre:Isabel Ortiz"
+SADD sucursal:2222:clientes "cliente:RFC16161:nombre:Sofia Ruiz"
+
+SADD sucursal:3333:clientes "cliente:RFC33445:nombre:Luis Hernandez"
+SADD sucursal:3333:clientes "cliente:RFC55667:nombre:Ana Gomez"
+SADD sucursal:3333:clientes "cliente:RFC30303:nombre:Alberto Vargas"
+SADD sucursal:3333:clientes "cliente:RFC70707:nombre:Manuel Cruz"
+SADD sucursal:3333:clientes "cliente:RFC13131:nombre:Roberto Palacios"
+
+SADD sucursal:4444:clientes "cliente:RFC77889:nombre:Pablo Martinez"
+SADD sucursal:4444:clientes "cliente:RFC40404:nombre:Monica Pineda"
+SADD sucursal:4444:clientes "cliente:RFC80808:nombre:Gloria Navarro"
+SADD sucursal:4444:clientes "cliente:RFC14141:nombre:Victor Garcia"
+
+SADD sucursal:5555:clientes "cliente:RFC12321:nombre:Jose Fernandez"
+SADD sucursal:5555:clientes "cliente:RFC78987:nombre:Andrea Rios"
+SADD sucursal:5555:clientes "cliente:RFC50505:nombre:Pedro Sanchez"
+SADD sucursal:5555:clientes "cliente:RFC90909:nombre:Marcos Fuentes"
+SADD sucursal:5555:clientes "cliente:RFC15151:nombre:Rosa Mendoza"
+EXEC
+
+
+
+
